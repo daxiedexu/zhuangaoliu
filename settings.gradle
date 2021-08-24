@@ -1,0 +1,2 @@
+include ':app', ':usercenter', ':resource', ':http', ':common', ':mvvm_core', ':welcome'
+rootProject.name='zhuangaoliu'

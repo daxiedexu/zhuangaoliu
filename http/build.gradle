@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+def libs=rootProject.ext.dependencies
+def urls=rootProject.ext.url
+android {
+    compileSdkVersion 30
+    buildToolsVersion "31.0.0"
+
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            buildConfigField("String","BASEURL","\""+urls.release+"\"")
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            buildConfigField("String","BASEURL","\""+urls.debug+"\"")
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation libs.okhttp
+    implementation libs.retrofit
+    implementation libs.rxjava
+    implementation libs.interceptor
+    implementation libs.gsonConverter
+}
