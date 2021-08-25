@@ -5,9 +5,11 @@ import androidx.lifecycle.LiveData;
 import com.example.http.protocol.BaseRespEntity;
 import com.example.welcome.mvvm.entity.GuideEntity;
 import com.example.welcome.mvvm.entity.NewListEntity;
+import com.example.welcome.mvvm.entity.NewsDetailEntity;
 
 import java.util.ArrayList;
 
+import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -24,6 +26,7 @@ public interface HomeApi {
     @GET("api/NewsType/getAllTypes")
     LiveData<BaseRespEntity<ArrayList<GuideEntity>>> guide();
     @GET("api/News/getNews?")
-    LiveData<BaseRespEntity<ArrayList<NewListEntity>>> newList(@Query("newstype") int newstype, @Query("pagenum") int pagenum, @Query("pagesize") int pagesize);
-
+    Observable<NewListEntity> newList(@Query("newstype") int newstype, @Query("pagenum") int pagenum, @Query("pagesize") int pagesize);
+    @GET("api/NewsDetail/getNewsDetail?")
+    Observable<NewsDetailEntity> detail(@Query("newscode") String newscode);
 }

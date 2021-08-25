@@ -13,7 +13,7 @@ import com.example.usercenter.databinding.ActivityLoginBinding;
 import com.example.usercenter.mvvm.api.UserCenterApi;
 import com.example.usercenter.mvvm.entity.LoginEntity;
 import com.example.usercenter.mvvm.viewmodel.LoginViewModel;
-import com.example.welcome.GuideActivity;
+import com.example.welcome.HomeActivity;
 import com.jakewharton.rxbinding2.view.RxView;
 
 import java.util.HashMap;
@@ -41,7 +41,7 @@ public class LoginActivity extends BaseActivity<LoginViewModel, ActivityLoginBin
                                         public void onChanged(BaseRespEntity<LoginEntity> loginEntityBaseRespEntity) {
                                             if (loginEntityBaseRespEntity.getCode()==200){
                                                 Toast.makeText(LoginActivity.this, "登录成功!", Toast.LENGTH_SHORT).show();
-                                                Intent intent = new Intent(LoginActivity.this, GuideActivity.class);
+                                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                                 startActivity(intent);
                                             }
                                         }

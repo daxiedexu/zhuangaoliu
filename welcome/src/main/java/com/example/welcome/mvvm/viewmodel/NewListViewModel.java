@@ -17,7 +17,7 @@ import com.example.welcome.mvvm.repository.HomeRepository;
  * User: 张海旭
  */
 public class NewListViewModel extends BaseViewModel<HomeRepository> {
-    MutableLiveData<NewListEntity> mutableLiveData = new MutableLiveData<>();
+    public MutableLiveData<NewListEntity> mutableLiveData = new MutableLiveData<>();
     public NewListViewModel(LifecycleOwner owner) {
         super(owner);
         NewListEntity newListEntity = new NewListEntity();

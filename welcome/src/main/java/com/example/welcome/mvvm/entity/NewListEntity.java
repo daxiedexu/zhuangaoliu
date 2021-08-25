@@ -1,5 +1,9 @@
 package com.example.welcome.mvvm.entity;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+
+import java.util.List;
+
 /**
  * @ClassName NewListEntity
  * @Description TODO
@@ -11,137 +15,167 @@ package com.example.welcome.mvvm.entity;
  */
 public class NewListEntity {
 
-    public Integer id;
-    public String newscode;
-    public Integer newstypeid;
-    public Integer sourcesiteid;
-    public String sourcesitename;
-    public String title;
-    public String description;
-    public String auth;
-    public String sourceurl;
-    public String mainimgurl;
-    public String istop;
+    private Integer code;
+    private List<DataBean> data;
+    private String msg;
 
     public NewListEntity() {
     }
 
-    public NewListEntity(Integer id, String newscode, Integer newstypeid, Integer sourcesiteid, String sourcesitename, String title, String description, String auth, String sourceurl, String mainimgurl, String istop) {
-        this.id = id;
-        this.newscode = newscode;
-        this.newstypeid = newstypeid;
-        this.sourcesiteid = sourcesiteid;
-        this.sourcesitename = sourcesitename;
-        this.title = title;
-        this.description = description;
-        this.auth = auth;
-        this.sourceurl = sourceurl;
-        this.mainimgurl = mainimgurl;
-        this.istop = istop;
+    public NewListEntity(Integer code, List<DataBean> data, String msg) {
+        this.code = code;
+        this.data = data;
+        this.msg = msg;
     }
 
-    public Integer getId() {
-        return id;
+    public Integer getCode() {
+        return code;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
-    public String getNewscode() {
-        return newscode;
+    public List<DataBean> getData() {
+        return data;
     }
 
-    public void setNewscode(String newscode) {
-        this.newscode = newscode;
+    public void setData(List<DataBean> data) {
+        this.data = data;
     }
 
-    public Integer getNewstypeid() {
-        return newstypeid;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setNewstypeid(Integer newstypeid) {
-        this.newstypeid = newstypeid;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
-    public Integer getSourcesiteid() {
-        return sourcesiteid;
-    }
+    public static class DataBean implements MultiItemEntity {
+        private Integer id;
+        private String newscode;
+        private Integer newstypeid;
+        private Integer sourcesiteid;
+        private String sourcesitename;
+        private String title;
+        private String description;
+        private String auth;
+        private String sourceurl;
+        private String mainimgurl;
+        private String istop;
+        private Integer Itemtype;
 
-    public void setSourcesiteid(Integer sourcesiteid) {
-        this.sourcesiteid = sourcesiteid;
-    }
+        public DataBean(Integer id, String newscode, Integer newstypeid, Integer sourcesiteid, String sourcesitename, String title, String description, String auth, String sourceurl, String mainimgurl, String istop, Integer itemtype) {
+            this.id = id;
+            this.newscode = newscode;
+            this.newstypeid = newstypeid;
+            this.sourcesiteid = sourcesiteid;
+            this.sourcesitename = sourcesitename;
+            this.title = title;
+            this.description = description;
+            this.auth = auth;
+            this.sourceurl = sourceurl;
+            this.mainimgurl = mainimgurl;
+            this.istop = istop;
+            Itemtype = itemtype;
+        }
 
-    public String getSourcesitename() {
-        return sourcesitename;
-    }
+        public Integer getId() {
+            return id;
+        }
 
-    public void setSourcesitename(String sourcesitename) {
-        this.sourcesitename = sourcesitename;
-    }
+        public void setId(Integer id) {
+            this.id = id;
+        }
 
-    public String getTitle() {
-        return title;
-    }
+        public String getNewscode() {
+            return newscode;
+        }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+        public void setNewscode(String newscode) {
+            this.newscode = newscode;
+        }
 
-    public String getDescription() {
-        return description;
-    }
+        public Integer getNewstypeid() {
+            return newstypeid;
+        }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+        public void setNewstypeid(Integer newstypeid) {
+            this.newstypeid = newstypeid;
+        }
 
-    public String getAuth() {
-        return auth;
-    }
+        public Integer getSourcesiteid() {
+            return sourcesiteid;
+        }
 
-    public void setAuth(String auth) {
-        this.auth = auth;
-    }
+        public void setSourcesiteid(Integer sourcesiteid) {
+            this.sourcesiteid = sourcesiteid;
+        }
 
-    public String getSourceurl() {
-        return sourceurl;
-    }
+        public String getSourcesitename() {
+            return sourcesitename;
+        }
 
-    public void setSourceurl(String sourceurl) {
-        this.sourceurl = sourceurl;
-    }
+        public void setSourcesitename(String sourcesitename) {
+            this.sourcesitename = sourcesitename;
+        }
 
-    public String getMainimgurl() {
-        return mainimgurl;
-    }
+        public String getTitle() {
+            return title;
+        }
 
-    public void setMainimgurl(String mainimgurl) {
-        this.mainimgurl = mainimgurl;
-    }
+        public void setTitle(String title) {
+            this.title = title;
+        }
 
-    public String getIstop() {
-        return istop;
-    }
+        public String getDescription() {
+            return description;
+        }
 
-    public void setIstop(String istop) {
-        this.istop = istop;
-    }
+        public void setDescription(String description) {
+            this.description = description;
+        }
 
-    @Override
-    public String toString() {
-        return "NewListEntity{" +
-                "id=" + id +
-                ", newscode='" + newscode + '\'' +
-                ", newstypeid=" + newstypeid +
-                ", sourcesiteid=" + sourcesiteid +
-                ", sourcesitename='" + sourcesitename + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", auth='" + auth + '\'' +
-                ", sourceurl='" + sourceurl + '\'' +
-                ", mainimgurl='" + mainimgurl + '\'' +
-                ", istop='" + istop + '\'' +
-                '}';
+        public String getAuth() {
+            return auth;
+        }
+
+        public void setAuth(String auth) {
+            this.auth = auth;
+        }
+
+        public String getSourceurl() {
+            return sourceurl;
+        }
+
+        public void setSourceurl(String sourceurl) {
+            this.sourceurl = sourceurl;
+        }
+
+        public String getMainimgurl() {
+            return mainimgurl;
+        }
+
+        public void setMainimgurl(String mainimgurl) {
+            this.mainimgurl = mainimgurl;
+        }
+
+        public String getIstop() {
+            return istop;
+        }
+
+        public void setIstop(String istop) {
+            this.istop = istop;
+        }
+
+        public void setItemtype(Integer itemtype) {
+            Itemtype = itemtype;
+        }
+
+        @Override
+        public int getItemType() {
+            return Itemtype;
+        }
     }
 }
