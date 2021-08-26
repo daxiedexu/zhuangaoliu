@@ -19,6 +19,7 @@ import com.example.http.RetrofitManger;
 import com.example.mvvm_core.view.BaseFragment;
 import com.example.welcome.BR;
 import com.example.welcome.DetailActivity;
+import com.example.welcome.NewDetailsActivity;
 import com.example.welcome.R;
 import com.example.welcome.adapter.NewListAdapter;
 import com.example.welcome.databinding.FragmentOneBinding;
@@ -178,32 +179,35 @@ public class OneFragment extends BaseFragment<NewListViewModel, FragmentOneBindi
     public void onItemClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
         NewListEntity.DataBean dataBean = (NewListEntity.DataBean) adapter.getItem(position);
         Log.d("hello",dataBean.getTitle());
-        RetrofitManger.getInstance().getRetrofit().create(HomeApi.class)
-                .detail(dataBean.getNewscode())
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<NewsDetailEntity>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
-                    @Override
-                    public void onNext(NewsDetailEntity newsDetailEntity) {
-                        Intent intent = new Intent(getActivity(), DetailActivity.class);
-                        intent.putExtra("detail",newsDetailEntity.getData());
-                        startActivity(intent);
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onComplete() {
-
-                    }
-                });
+        Intent intent = new Intent(getActivity(), NewDetailsActivity.class);
+        intent.putExtra("newsCode",dataBean.getNewscode());
+        startActivity(intent);
+//        RetrofitManger.getInstance().getRetrofit().create(HomeApi.class)
+//                .detail(dataBean.getNewscode())
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Observer<NewsDetailEntity>() {
+//                    @Override
+//                    public void onSubscribe(Disposable d) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onNext(NewsDetailEntity newsDetailEntity) {
+//                        Intent intent = new Intent(getActivity(), DetailActivity.class);
+//                        intent.putExtra("detail",newsDetailEntity.getData());
+//                        startActivity(intent);
+//                    }
+//
+//                    @Override
+//                    public void onError(Throwable e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onComplete() {
+//
+//                    }
+//                });
     }
 }

@@ -28,5 +28,5 @@ public interface HomeApi {
     @GET("api/News/getNews?")
     Observable<NewListEntity> newList(@Query("newstype") int newstype, @Query("pagenum") int pagenum, @Query("pagesize") int pagesize);
     @GET("api/NewsDetail/getNewsDetail?")
-    Observable<NewsDetailEntity> detail(@Query("newscode") String newscode);
+    LiveData<NewsDetailEntity> detail(@Query("newscode") String newscode);
 }

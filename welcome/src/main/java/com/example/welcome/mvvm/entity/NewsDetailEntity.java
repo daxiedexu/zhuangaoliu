@@ -15,6 +15,10 @@ public class NewsDetailEntity implements Parcelable {
     private DataBean data;
     private String msg;
 
+
+    public NewsDetailEntity() {
+    }
+
     protected NewsDetailEntity(Parcel in) {
         code = in.readInt();
         msg = in.readString();
